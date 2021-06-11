@@ -1,0 +1,334 @@
+version: "2.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - new_insurance
+  - exisiting_insurance
+  - enter_age
+  - enter_name
+  - enter_date
+  - enter_state
+  - max_life
+  - lic_life
+  - hdfc_life
+  - thank_you1
+  - enter_email
+  - last_policy
+  - renew
+  - hospitals
+  - payments
+  - 1claim
+  - customer_care
+  - hdfc_claim
+  - max_claim
+  - lic_claim
+  - docs_required
+  - claim_process
+  - new_plans
+  
+
+
+entities:
+  - age
+  - name
+  - 1date
+  - state
+  - plan
+  - hplan
+  - lplan
+  - policy
+  - email
+  - hospital
+  - claime
+  - customer
+  - startclaim1
+  - startclaim2
+  - startclaim3
+  - docs
+  - process
+  - payment
+  
+
+
+slots:
+
+  name:
+   type: unfeaturized
+   influence_conversation: false
+  age:
+   type: unfeaturized
+   influence_conversation: false
+  1date:
+   type: unfeaturized
+   influence_conversation: false
+  state:
+   type: unfeaturized
+   influence_conversation: false
+  email:
+   type: unfeaturized 
+   influence_conversation: false
+     
+ 
+forms:
+ - insurance_form  
+
+responses:
+  utter_greet:
+  - text: "Hey!" 
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am your insurance assistant."
+
+  utter_help:
+  - text: "I can help you find the best insurance plans for you and your family"
+    buttons:
+      - title: "New insurance"
+        payload: "/new_insurance"
+      - title: "Existing insurance"
+        payload: "/exisiting_insurance"
+      - title: "Claim Management"
+        payload: "/claim"
+      
+
+  utter_start_new:
+  - text: "Okay, i will help you with some new insurance plans"       
+
+  utter_ask_age:
+  - text: "What is your age?"
+
+  utter_ask_name:
+  - text: "What is your name?"
+
+ 
+  utter_ask_1date:
+  - text: "Can you tell me the Time Period for insurance?"
+    
+       
+  utter_ask_state:
+  - text: "Which state do you belong to?"
+
+  utter_ask_email:
+  - text: "Can you help me with your email?"
+
+  utter_submit:
+  - text: "All Done"  
+
+  utter_slotsvalue:
+    - text: "Your insurance request is as following
+             - age: {age}\n
+             - name: {name}\n
+             - date: {1date}\n
+             - state: {state}\n
+             - email: {email}\n"
+  utter_confirm:           
+    - text: " Kindly confirm you details"         
+      buttons:
+        - title: "yes"   
+          payload: "/new_plans"
+        - title: "no"    
+          payload: "/new_insurance"
+
+  utter_last_insurance:
+  - text: "okay, for last insurance you should help me with some details "
+  
+  utter_fill_claim:
+  - text: "okay, i will connect you to form "
+
+  utter_new_plans:
+  - text: "Here are some insurance you would like"
+    buttons:
+      - title: "Max Life Insurance"
+        payload: "/max_life"
+      - title: "HDFC Life Insurance"
+        payload: "/hdfc_life"
+      - title: "LIC Life Insurance"    
+        payload: "/lic_life"
+
+  utter_max_life:
+  - text: "Here are the details for Max Life Insurance
+          The total cost for {1date} is 20000 per month and you get:
+          • Renewable up to 24 months
+          
+          • Medical insurance for individual, group and family
+
+          • Renwable upto 24 months
+
+          • Deductible options from 0/- to 50000/-
+
+          • Maximum Limits from 50,000/- to 500,000/-
+
+          • Coverage for medical expenses, accidents and critical diseases"
+
+  utter_hdfc_life:
+  - text: "Here are the details for Max Life Insurance
+          The total cost for {1date} is 20000 per month and you get:
+          • Renewable up to 24 months
+          
+          • Medical insurance for individual, group and family
+
+          • Renwable upto 24 months
+
+          • Deductible options from 0/- to 50000/-
+
+          • Maximum Limits from 50,000/- to 500,000/-
+
+          • Coverage for medical expenses, accidents and critical diseases"
+    
+
+  utter_lic_life:
+  - text: "Here are the details for Max Life Insurance
+          The total cost for {1date} is 20000 per month and you get:
+          • Renewable up to 24 months
+          
+          • Medical insurance for individual, group and family
+
+          • Renwable upto 24 months
+
+          • Deductible options from 0/- to 50000/-
+
+          • Maximum Limits from 50,000/- to 500,000/-
+
+          • Coverage for medical expenses, accidents and critical diseases"
+
+  utter_sign_up:
+  - text: "Do you want to sign  up for this insurance?"
+    buttons:
+      - title: "yes"
+        payload: "/form_close"
+      - title: "no"  
+        payload: "/new plans"
+
+  utter_email:      
+  - text: "Great! Our team in {state} will contact you on your email id which is {email}"
+
+  utter_form_close:
+  - text: "Thank You, Rest of the details will be sent to your email address "     
+
+  utter_thank_you1:
+  - text: "Thank You, Our team will contact you soon regarding your requests" 
+
+  utter_last_insu:
+  - text: "I can see that you have 2 policies please select one"
+    buttons:
+      - title: "M123456"
+        payload: "/last_policy"
+      - title: "M789456"
+        payload: "/last_policy"
+
+  utter_last_state:
+  - text: "Your last insurance policy was Max Life Insurance
+           This costs you 20000/- per month. Expiring on 21 march 2022.
+          
+          • Renewable up to 24 months
+          
+          • Medical insurance for individual, group and family
+
+          • Renwable upto 24 months
+
+          • Deductible options from 0/- to 50000/-
+
+          • Maximum Limits from 50,000/- to 500,000/-
+
+          • Coverage for medical expenses, accidents and critical diseases"
+
+  utter_renew:
+  - text: "Do you want to renew the same policy?"        
+    buttons: 
+      - title: "yes"
+        payload: "/renew"
+      - title: "no"
+        payload: "/new_insurance"
+
+  utter_renew_thank:
+  - text: "Okay, great i will request a renewal of your policy.Further details will be available on {email}."
+  
+  utter_payment:
+  - text: "We accept VISA, Mastercard, Paytm"
+
+  utter_hospital:
+  - text: "We are having contacts with:
+          * Ruby Hospital,Pune
+          * KEM Hospital, Mumbai
+          * Kokilaben Dhirubhai Ambani Hospital and Medical Research Institute, Mumbai"
+                
+  utter_customer:
+  - text: "Feel free to talk to our customer representative
+             Dial - 1800522236 or you can mail on help@juppiterlabs.com"
+
+  utter_claim1:
+  - text: "We promise to be with you in your time of need. Therefore we have a simplified claim process:
+           
+           1. You fill the policy form
+           2. Pay the applicable premium
+           3. Receive a payment confirmation from us
+           4. We evaluate your profile and ask for further requirements if any
+           5. You fulfill all the requirements
+           6. Policy is credited in your EIA account"
+
+  utter_documents:
+  - text: "Following documents are required:
+          1. Address proof
+          2. ID Proof
+          3. Income Proof
+          4. Age Proof
+          5. Pan Card / Form 60 / Declaration in lieu of PAN
+          6. CCD (Customer Consent Document) - will be provided by HDFC Life
+          7. Copy of initial premium cheque / DD (if paying through offline mode)
+          8. Photo"        
+ 
+  utter_start_claim:
+  - text: "okay! I can help you with that
+          For which company would you like to apply for claim:"
+    buttons:
+      - title: "Max Life Insurance"
+        payload: "/max_claim"
+      - title: "HDFC Life Insurance"
+        payload: "/hdfc_claim"
+      - title: "LIC Life Insurance"    
+        payload: "/lic_claim"
+
+  utter_hdfc_claim:
+  - text: "Please raise a claim request at https://lifeeasy.hdfclife.com/claims 
+           or you can submit the necessary documents required for processing the
+           claim at branch ( https://www.hdfclife.com/branch-locator ). 
+           The forms are available at branch.The list of the documents can be obtained 
+           on this link http://www.hdfclife.com/customer-service/claims"  
+
+  utter_max_claim:
+  - text: "Please raise a claim request at https://www.maxlifeinsurance.com/customer-service/request-claim.html
+           or you can submit the necessary documents required for processing the
+           claim at branch ( https://www.hdfclife.com/branch-locator ). 
+           The forms are available at branch.The list of the documents can be obtained 
+           on this link http://www.hdfclife.com/customer-service/claims"  
+
+  utter_Lic_claim:
+  - text: "Please visit the Servicing Branch of your Policy to get the requirements, 
+           however, you may download the maturity claim form https://licindia.in/Products/Insurance-Plan "    
+
+  utter_else:
+  - text: "Is there anything else that I can help you with?"
+  utter_wrong_email:
+  - text: "please enter valid email address"  
+
+           
+                   
+ 
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

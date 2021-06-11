@@ -1,0 +1,132 @@
+version: "2.0"
+
+stories:
+  - story: happy path
+    steps:
+      - intent: greet
+      - action: utter_greet
+      - action: utter_iamabot
+      - action: utter_help
+      - intent: new_insurance
+      - action: utter_start_new
+      - action: insurance_form 
+      - active_loop: insurance_form
+      - active_loop: null
+      - action: utter_slotsvalue
+      - action: utter_confirm
+      - intent: new_plans
+      - action: utter_new_plans  
+      
+      
+  - story: new plan
+    steps:
+      - intent: new_plans
+      - action: utter_new_plans    
+     
+
+  - story: existing insurance
+    steps:
+      - intent: exisiting_insurance 
+      - action: utter_last_insu  
+      - intent: last_policy
+      - action: utter_last_state
+      - action: utter_renew
+      - intent: renew
+      - action: utter_renew_thank
+      
+
+  - story: claim_1
+    steps:
+      - intent: 1claim  
+      - action: utter_start_claim
+      
+
+  - story: no plan
+    steps:
+      - intent: new_insurance
+      - action: utter_help   
+      - action: utter_slotsvalue
+      - action: utter_confirm
+      - intent: new_plans
+      - action: utter_new_plans 
+
+  - story: insurances
+    steps:
+      - intent: max_life
+      - action: utter_max_life
+      - action: utter_sign_up
+      - intent: form_close
+      - action: utter_email
+      - action: utter_form_close
+      
+
+  - story: insurances1
+    steps:
+      - intent: hdfc_life
+      - action: utter_hdfc_life 
+      - action: utter_sign_up
+      - intent: form_close
+      - action: utter_email
+      - action: utter_form_close
+     
+
+  - story: insurances2
+    steps:
+      - intent: lic_life
+      - action: utter_lic_life  
+      - action: utter_sign_up
+      - intent: form_close
+      - intent: thank_you
+      - action: utter_email
+      - action: utter_form_close 
+
+  - story: docs
+    steps:
+      - intent: docs_required
+      - action: utter_documents
+
+  #- story: claim1
+  #  steps:
+  #    - intent: claim
+  #    - action: utter_start_claim
+
+  - story: lic
+    steps:
+      - intent: lic_claim
+      - action: utter_Lic_claim 
+
+  - story: max
+    steps:
+      - intent: max_claim
+      - action: utter_max_claim     
+
+  - story: hdfc
+    steps:
+      - intent: hdfc_claim
+      - action: utter_hdfc_claim       
+
+  - story: a1
+    steps:
+      - intent: new_plans
+      - action: utter_new_plans
+      
+  - story : affirm
+    steps:
+      - intent: affirm
+      - action: utter_happy 
+
+  - story : newinsu       
+    steps:
+      - intent: new_insurance
+      - action: utter_start_new
+      - action: insurance_form 
+      - active_loop: insurance_form
+      - active_loop: null
+      - action: utter_slotsvalue
+      - action: utter_confirm
+      - intent: new_plans
+      - action: utter_new_plans  
+           
+    
+       
+     

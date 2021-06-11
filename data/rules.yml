@@ -1,0 +1,39 @@
+version: "2.0"
+
+rules:
+
+- rule: Say goodbye anytime the user says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Say payment anytime the user asks for payment
+  steps:
+  - intent: payments
+  - action: utter_payment
+
+- rule: Say hospitals anytime the user asks for hospital
+  steps:
+  - intent: hospitals
+  - action: utter_hospital
+
+- rule: customer care
+  steps:
+  - intent: customer_care
+  - action: utter_customer
+
+- rule:  Say process claim anytime the user asks for claim process 
+  steps:   
+  - intent: claim_process
+  - action: utter_claim1
+
+
+- rule:  Say process thankyou anytime the user asks for thank you
+  steps:   
+  - intent: thank_you1
+  - action: utter_thank_you1
